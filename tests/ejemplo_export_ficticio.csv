@@ -1,0 +1,14 @@
+conversacion_id,contacto,fecha_hora,rol,texto,es_voz
+c1,+57 300 123 4567,2026-09-01 08:00:00,usuario,"Hola, soy Laura Gómez Pérez, mi cédula es 1.047.123.456",0
+c1,+57 300 123 4567,2026-09-01 08:00:05,bot,"Hola, ¿en qué te ayudo?",0
+c1,+57 300 123 4567,2026-09-01 08:01:00,usuario,"¿Ya está mi resultado? orden No. A-55821",0
+c1,+57 300 123 4567,2026-09-01 08:01:05,bot,"Tu estudio está en proceso.",0
+c1,+57 300 123 4567,2026-09-01 08:02:00,usuario,"Llevo días esperando, quiero hablar con un asesor. Mi correo es laura.g@correo.com",0
+c1,+57 300 123 4567,2026-09-01 08:05:00,asesor,"Buenos días, le colaboro.",0
+c2,3157778899,2026-09-02 10:00:00,usuario,"Buenas, ¿a qué hora abren el sábado?",0
+c2,3157778899,2026-09-02 10:00:03,bot,"Los sábados de 6:00 a 12:00.",0
+c2,3157778899,2026-09-02 10:01:00,usuario,"audio.opus",1
+c2,3157778899,2026-09-02 10:02:00,usuario,"Muchas gracias",0
+c3,3001112233,2026-09-03 09:00:00,usuario,"Mi mamá se llama Rosa Díaz, vivimos en la Calle 30 # 17-45, el examen de ella del 02/09/2026",0
+c3,3001112233,2026-09-03 09:00:04,bot,"¿Me confirmas el documento?",0
+c3,3001112233,2026-09-03 09:01:00,usuario,"Es 45123987, el teléfono 6056789",0
