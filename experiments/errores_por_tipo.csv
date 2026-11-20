@@ -1,0 +1,11 @@
+modelo,error,tipo_error,casos
+(A') HMM · τ en validación,FN,FN_conversacion_corta,1
+(A') HMM · τ en validación,FN,FN_sin_senal_explicita,2
+(A') HMM · τ en validación,FN,FN_voz,6
+(A') HMM · τ en validación,FP,FP_lexico_negativo,1
+(A') HMM · τ en validación,FP,FP_pide_asesor_sin_necesidad,2
+(B') Logística · τ en validación,FN,FN_voz,3
+(B') Logística · τ en validación,FP,FP_lexico_negativo,1
+(B') Logística · τ en validación,FP,FP_pide_asesor_sin_necesidad,4
+(B') Logística · τ en validación,FP,FP_sin_atajo_acumulado,4
+(B') Logística · τ en validación,FP,FP_voz,5

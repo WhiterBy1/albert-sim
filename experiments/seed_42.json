@@ -1,0 +1,678 @@
+{
+  "seed": 42,
+  "fecha": "2026-11-19T13:27:22",
+  "python": "3.12.15",
+  "datos": {
+    "conversaciones": 2300,
+    "turnos": 7837,
+    "pct_requiere_asesor_G1": 33.8,
+    "pct_mensajes_al_llm_G1": 23.2,
+    "objetivo_piloto": {
+      "pct_con_asesor": 36,
+      "pct_mensajes_sin_atajo": 23
+    }
+  },
+  "hiperparametros": {
+    "hmm_alfa_laplace": 0.1,
+    "hmm_tau_predeclarado": 0.2,
+    "hmm_tau_validacion": 0.75,
+    "logistica_C": 0.1,
+    "logistica_tau_predeclarado": 0.2,
+    "logistica_tau_validacion": 0.4
+  },
+  "hmm_parametros": {
+    "pi": [
+      0.9999,
+      0.0001,
+      0.0001
+    ],
+    "A": [
+      [
+        0.793,
+        0.0118,
+        0.1952
+      ],
+      [
+        0.4312,
+        0.386,
+        0.1828
+      ],
+      [
+        0.0001,
+        0.0001,
+        0.9998
+      ]
+    ],
+    "B": [
+      [
+        0.0246,
+        0.051,
+        0.0012,
+        0.0655,
+        0.0978,
+        0.2689,
+        0.4909
+      ],
+      [
+        0.0878,
+        0.0878,
+        0.0236,
+        0.5161,
+        0.2163,
+        0.045,
+        0.0236
+      ],
+      [
+        0.1795,
+        0.2546,
+        0.108,
+        0.0573,
+        0.2482,
+        0.0001,
+        0.1524
+      ]
+    ]
+  },
+  "resultados": {
+    "val": {
+      "Línea base 1 · Reglas fijas (Albert)": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 80,
+        "fp": 23,
+        "fn": 15,
+        "precision": 0.7766990291262136,
+        "recall": 0.8421052631578947,
+        "f1": 0.8080808080808081,
+        "exactitud": 0.8733333333333333,
+        "pct_innecesarios": 22.33009708737864,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.7375,
+        "ece": NaN,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.868421052631579,
+          "titular": 0.7704918032786885
+        },
+        "f1_por_escritura": {
+          "buena": 0.8266666666666665,
+          "mala": 0.75
+        },
+        "f1_por_usa_voz": {
+          "0": 0.761904761904762,
+          "1": 0.9411764705882353
+        },
+        "brecha_f1_max": 0.1792717086834733,
+        "brechas_f1": {
+          "tipo_usuario": 0.09792924935289049,
+          "escritura": 0.07666666666666655,
+          "usa_voz": 0.1792717086834733
+        }
+      },
+      "Línea base 2 · Clase mayoritaria": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 0,
+        "fp": 0,
+        "fn": 95,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "exactitud": 0.6833333333333333,
+        "pct_innecesarios": 0.0,
+        "retraso_mediana": NaN,
+        "retraso_medio": NaN,
+        "ece": 0.0326190476190476,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.0,
+          "titular": 0.0
+        },
+        "f1_por_escritura": {
+          "buena": 0.0,
+          "mala": 0.0
+        },
+        "f1_por_usa_voz": {
+          "0": 0.0,
+          "1": 0.0
+        },
+        "brecha_f1_max": 0.0,
+        "brechas_f1": {
+          "tipo_usuario": 0.0,
+          "escritura": 0.0,
+          "usa_voz": 0.0
+        }
+      },
+      "(A) HMM · τ* predeclarado": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 95,
+        "fp": 70,
+        "fn": 0,
+        "precision": 0.5757575757575758,
+        "recall": 1.0,
+        "f1": 0.7307692307692308,
+        "exactitud": 0.7666666666666667,
+        "pct_innecesarios": 42.42424242424242,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.22105263157894736,
+        "ece": 0.07119023507125,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7524752475247524,
+          "titular": 0.7169811320754718
+        },
+        "f1_por_escritura": {
+          "buena": 0.7675675675675676,
+          "mala": 0.6399999999999999
+        },
+        "f1_por_usa_voz": {
+          "0": 0.6799999999999999,
+          "1": 0.9
+        },
+        "brecha_f1_max": 0.22000000000000008,
+        "brechas_f1": {
+          "tipo_usuario": 0.035494115449280605,
+          "escritura": 0.1275675675675677,
+          "usa_voz": 0.22000000000000008
+        }
+      },
+      "(A') HMM · τ en validación": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 86,
+        "fp": 0,
+        "fn": 9,
+        "precision": 1.0,
+        "recall": 0.9052631578947369,
+        "f1": 0.9502762430939227,
+        "exactitud": 0.97,
+        "pct_innecesarios": 0.0,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.8604651162790697,
+        "ece": 0.13374292283853545,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.9295774647887324,
+          "titular": 0.9636363636363636
+        },
+        "f1_por_escritura": {
+          "buena": 0.9710144927536231,
+          "mala": 0.8837209302325582
+        },
+        "f1_por_usa_voz": {
+          "0": 0.9618320610687023,
+          "1": 0.92
+        },
+        "brecha_f1_max": 0.0872935625210649,
+        "brechas_f1": {
+          "tipo_usuario": 0.03405889884763125,
+          "escritura": 0.0872935625210649,
+          "usa_voz": 0.0418320610687023
+        }
+      },
+      "(B) Logística · τ* predeclarado": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 95,
+        "fp": 47,
+        "fn": 0,
+        "precision": 0.6690140845070423,
+        "recall": 1.0,
+        "f1": 0.8016877637130801,
+        "exactitud": 0.8433333333333334,
+        "pct_innecesarios": 33.098591549295776,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.21052631578947367,
+        "ece": 0.1348353798577461,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7916666666666666,
+          "titular": 0.8085106382978724
+        },
+        "f1_por_escritura": {
+          "buena": 0.8502994011976047,
+          "mala": 0.6857142857142856
+        },
+        "f1_por_usa_voz": {
+          "0": 0.7640449438202247,
+          "1": 0.9152542372881356
+        },
+        "brecha_f1_max": 0.1645851154833191,
+        "brechas_f1": {
+          "tipo_usuario": 0.016843971631205767,
+          "escritura": 0.1645851154833191,
+          "usa_voz": 0.1512092934679109
+        }
+      },
+      "(B') Logística · τ en validación": {
+        "n": 300,
+        "positivos": 95,
+        "tp": 94,
+        "fp": 5,
+        "fn": 1,
+        "precision": 0.9494949494949495,
+        "recall": 0.9894736842105263,
+        "f1": 0.9690721649484537,
+        "exactitud": 0.98,
+        "pct_innecesarios": 5.05050505050505,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.4574468085106383,
+        "ece": 0.1337974202370007,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.9743589743589743,
+          "titular": 0.9655172413793103
+        },
+        "f1_por_escritura": {
+          "buena": 1.0,
+          "mala": 0.8846153846153847
+        },
+        "f1_por_usa_voz": {
+          "0": 0.9714285714285714,
+          "1": 0.9629629629629629
+        },
+        "brecha_f1_max": 0.11538461538461531,
+        "brechas_f1": {
+          "tipo_usuario": 0.008841732979664063,
+          "escritura": 0.11538461538461531,
+          "usa_voz": 0.00846560846560851
+        }
+      }
+    },
+    "test_g1": {
+      "Línea base 1 · Reglas fijas (Albert)": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 82,
+        "fp": 42,
+        "fn": 9,
+        "precision": 0.6612903225806451,
+        "recall": 0.9010989010989011,
+        "f1": 0.7627906976744186,
+        "exactitud": 0.83,
+        "pct_innecesarios": 33.87096774193548,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.7926829268292683,
+        "ece": NaN,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7912087912087912,
+          "titular": 0.7419354838709677
+        },
+        "f1_por_escritura": {
+          "buena": 0.7560975609756098,
+          "mala": 0.7843137254901961
+        },
+        "f1_por_usa_voz": {
+          "0": 0.7236842105263158,
+          "1": 0.8571428571428572
+        },
+        "brecha_f1_max": 0.1334586466165414,
+        "brechas_f1": {
+          "tipo_usuario": 0.049273307337823424,
+          "escritura": 0.028216164514586306,
+          "usa_voz": 0.1334586466165414
+        }
+      },
+      "Línea base 2 · Clase mayoritaria": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 0,
+        "fp": 0,
+        "fn": 91,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "exactitud": 0.6966666666666667,
+        "pct_innecesarios": 0.0,
+        "retraso_mediana": NaN,
+        "retraso_medio": NaN,
+        "ece": 0.04595238095238091,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.0,
+          "titular": 0.0
+        },
+        "f1_por_escritura": {
+          "buena": 0.0,
+          "mala": 0.0
+        },
+        "f1_por_usa_voz": {
+          "0": 0.0,
+          "1": 0.0
+        },
+        "brecha_f1_max": 0.0,
+        "brechas_f1": {
+          "tipo_usuario": 0.0,
+          "escritura": 0.0,
+          "usa_voz": 0.0
+        }
+      },
+      "(A) HMM · τ* predeclarado": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 91,
+        "fp": 83,
+        "fn": 0,
+        "precision": 0.5229885057471264,
+        "recall": 1.0,
+        "f1": 0.6867924528301886,
+        "exactitud": 0.7233333333333334,
+        "pct_innecesarios": 47.701149425287355,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.23076923076923078,
+        "ece": 0.08692375000330235,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7454545454545455,
+          "titular": 0.6451612903225806
+        },
+        "f1_por_escritura": {
+          "buena": 0.6965174129353234,
+          "mala": 0.65625
+        },
+        "f1_por_usa_voz": {
+          "0": 0.6387434554973821,
+          "1": 0.8108108108108109
+        },
+        "brecha_f1_max": 0.17206735531342876,
+        "brechas_f1": {
+          "tipo_usuario": 0.10029325513196485,
+          "escritura": 0.04026741293532343,
+          "usa_voz": 0.17206735531342876
+        }
+      },
+      "(A') HMM · τ en validación": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 82,
+        "fp": 2,
+        "fn": 9,
+        "precision": 0.9761904761904762,
+        "recall": 0.9010989010989011,
+        "f1": 0.937142857142857,
+        "exactitud": 0.9633333333333334,
+        "pct_innecesarios": 2.380952380952381,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.9878048780487805,
+        "ece": 0.1639633575159678,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.975,
+          "titular": 0.9052631578947369
+        },
+        "f1_por_escritura": {
+          "buena": 0.9323308270676691,
+          "mala": 0.9523809523809523
+        },
+        "f1_por_usa_voz": {
+          "0": 0.9747899159663865,
+          "1": 0.8571428571428571
+        },
+        "brecha_f1_max": 0.11764705882352944,
+        "brechas_f1": {
+          "tipo_usuario": 0.0697368421052631,
+          "escritura": 0.020050125313283207,
+          "usa_voz": 0.11764705882352944
+        }
+      },
+      "(B) Logística · τ* predeclarado": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 91,
+        "fp": 47,
+        "fn": 0,
+        "precision": 0.6594202898550725,
+        "recall": 1.0,
+        "f1": 0.794759825327511,
+        "exactitud": 0.8433333333333334,
+        "pct_innecesarios": 34.05797101449275,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.17582417582417584,
+        "ece": 0.1393359070137171,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.8453608247422679,
+          "titular": 0.7575757575757575
+        },
+        "f1_por_escritura": {
+          "buena": 0.8187134502923976,
+          "mala": 0.7241379310344828
+        },
+        "f1_por_usa_voz": {
+          "0": 0.7770700636942676,
+          "1": 0.8333333333333333
+        },
+        "brecha_f1_max": 0.09457551925791485,
+        "brechas_f1": {
+          "tipo_usuario": 0.08778506716651047,
+          "escritura": 0.09457551925791485,
+          "usa_voz": 0.056263269639065694
+        }
+      },
+      "(B') Logística · τ en validación": {
+        "n": 300,
+        "positivos": 91,
+        "tp": 91,
+        "fp": 5,
+        "fn": 0,
+        "precision": 0.9479166666666666,
+        "recall": 1.0,
+        "f1": 0.9732620320855615,
+        "exactitud": 0.9833333333333333,
+        "pct_innecesarios": 5.208333333333333,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.38461538461538464,
+        "ece": 0.13835510847828228,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.9879518072289156,
+          "titular": 0.9615384615384615
+        },
+        "f1_por_escritura": {
+          "buena": 0.9929078014184397,
+          "mala": 0.9130434782608696
+        },
+        "f1_por_usa_voz": {
+          "0": 0.9838709677419354,
+          "1": 0.9523809523809523
+        },
+        "brecha_f1_max": 0.07986432315757008,
+        "brechas_f1": {
+          "tipo_usuario": 0.02641334569045417,
+          "escritura": 0.07986432315757008,
+          "usa_voz": 0.03149001536098306
+        }
+      }
+    },
+    "test_g2": {
+      "Línea base 1 · Reglas fijas (Albert)": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 83,
+        "fp": 30,
+        "fn": 14,
+        "precision": 0.7345132743362832,
+        "recall": 0.8556701030927835,
+        "f1": 0.7904761904761903,
+        "exactitud": 0.8533333333333334,
+        "pct_innecesarios": 26.548672566371682,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.7349397590361446,
+        "ece": NaN,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.8200000000000001,
+          "titular": 0.7636363636363636
+        },
+        "f1_por_escritura": {
+          "buena": 0.8,
+          "mala": 0.775
+        },
+        "f1_por_usa_voz": {
+          "0": 0.7727272727272727,
+          "1": 0.8205128205128206
+        },
+        "brecha_f1_max": 0.056363636363636505,
+        "brechas_f1": {
+          "tipo_usuario": 0.056363636363636505,
+          "escritura": 0.025000000000000022,
+          "usa_voz": 0.04778554778554789
+        }
+      },
+      "Línea base 2 · Clase mayoritaria": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 0,
+        "fp": 0,
+        "fn": 97,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "exactitud": 0.6766666666666666,
+        "pct_innecesarios": 0.0,
+        "retraso_mediana": NaN,
+        "retraso_medio": NaN,
+        "ece": 0.02595238095238095,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.0,
+          "titular": 0.0
+        },
+        "f1_por_escritura": {
+          "buena": 0.0,
+          "mala": 0.0
+        },
+        "f1_por_usa_voz": {
+          "0": 0.0,
+          "1": 0.0
+        },
+        "brecha_f1_max": 0.0,
+        "brechas_f1": {
+          "tipo_usuario": 0.0,
+          "escritura": 0.0,
+          "usa_voz": 0.0
+        }
+      },
+      "(A) HMM · τ* predeclarado": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 97,
+        "fp": 86,
+        "fn": 0,
+        "precision": 0.5300546448087432,
+        "recall": 1.0,
+        "f1": 0.692857142857143,
+        "exactitud": 0.7133333333333334,
+        "pct_innecesarios": 46.994535519125684,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.09278350515463918,
+        "ece": 0.1130593787649875,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7076923076923077,
+          "titular": 0.6799999999999999
+        },
+        "f1_por_escritura": {
+          "buena": 0.7218934911242603,
+          "mala": 0.6486486486486487
+        },
+        "f1_por_usa_voz": {
+          "0": 0.6451612903225806,
+          "1": 0.7872340425531915
+        },
+        "brecha_f1_max": 0.1420727522306109,
+        "brechas_f1": {
+          "tipo_usuario": 0.027692307692307794,
+          "escritura": 0.07324484247561158,
+          "usa_voz": 0.1420727522306109
+        }
+      },
+      "(A') HMM · τ en validación": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 88,
+        "fp": 3,
+        "fn": 9,
+        "precision": 0.967032967032967,
+        "recall": 0.9072164948453608,
+        "f1": 0.9361702127659575,
+        "exactitud": 0.96,
+        "pct_innecesarios": 3.2967032967032965,
+        "retraso_mediana": 1.0,
+        "retraso_medio": 0.7840909090909091,
+        "ece": 0.1582877501849276,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.9555555555555557,
+          "titular": 0.9183673469387754
+        },
+        "f1_por_escritura": {
+          "buena": 0.9391304347826086,
+          "mala": 0.9315068493150684
+        },
+        "f1_por_usa_voz": {
+          "0": 0.957983193277311,
+          "1": 0.8985507246376812
+        },
+        "brecha_f1_max": 0.05943246863962981,
+        "brechas_f1": {
+          "tipo_usuario": 0.037188208616780294,
+          "escritura": 0.0076235854675401615,
+          "usa_voz": 0.05943246863962981
+        }
+      },
+      "(B) Logística · τ* predeclarado": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 96,
+        "fp": 62,
+        "fn": 1,
+        "precision": 0.6075949367088608,
+        "recall": 0.9896907216494846,
+        "f1": 0.7529411764705881,
+        "exactitud": 0.79,
+        "pct_innecesarios": 39.24050632911393,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.10416666666666667,
+        "ece": 0.14376731413945928,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.7796610169491525,
+          "titular": 0.7299270072992701
+        },
+        "f1_por_escritura": {
+          "buena": 0.7999999999999999,
+          "mala": 0.6857142857142856
+        },
+        "f1_por_usa_voz": {
+          "0": 0.7142857142857143,
+          "1": 0.8275862068965518
+        },
+        "brecha_f1_max": 0.11428571428571432,
+        "brechas_f1": {
+          "tipo_usuario": 0.049734009649882394,
+          "escritura": 0.11428571428571432,
+          "usa_voz": 0.11330049261083752
+        }
+      },
+      "(B') Logística · τ en validación": {
+        "n": 300,
+        "positivos": 97,
+        "tp": 94,
+        "fp": 14,
+        "fn": 3,
+        "precision": 0.8703703703703703,
+        "recall": 0.9690721649484536,
+        "f1": 0.9170731707317072,
+        "exactitud": 0.9433333333333334,
+        "pct_innecesarios": 12.962962962962964,
+        "retraso_mediana": 0.0,
+        "retraso_medio": 0.3723404255319149,
+        "ece": 0.1272998686516353,
+        "f1_por_tipo_usuario": {
+          "tercero": 0.9183673469387755,
+          "titular": 0.9158878504672897
+        },
+        "f1_por_escritura": {
+          "buena": 0.9752066115702478,
+          "mala": 0.8333333333333333
+        },
+        "f1_por_usa_voz": {
+          "0": 0.9523809523809523,
+          "1": 0.860759493670886
+        },
+        "brecha_f1_max": 0.14187327823691454,
+        "brechas_f1": {
+          "tipo_usuario": 0.0024794964714858203,
+          "escritura": 0.14187327823691454,
+          "usa_voz": 0.09162145871006633
+        }
+      }
+    }
+  }
+}
