@@ -1,0 +1,29 @@
+# Albert-sim: PostgreSQL 16 + aplicación Streamlit. Datos 100 % sintéticos (la contraseña es de demostración).
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: albert
+      POSTGRES_PASSWORD: albert
+      POSTGRES_DB: albert_sim
+    volumes:
+      - ./src/sql/esquema.sql:/docker-entrypoint-initdb.d/01_esquema.sql:ro
+      - albert_sim_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U albert -d albert_sim"]
+      interval: 3s
+      retries: 20
+    # sin "ports": la base solo es visible para la app. Para entrar: docker compose exec db psql -U albert albert_sim
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ALBERT_DB_URL: postgresql+psycopg2://albert:albert@db:5432/albert_sim
+    ports:
+      - "127.0.0.1:8501:8501"
+    volumes:
+      - ./experiments:/app/experiments      # los resultados quedan en tu carpeta
+volumes:
+  albert_sim_pg:

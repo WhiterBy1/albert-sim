@@ -1,0 +1,11 @@
+# Datos generados (se reproducen con el script) y datos reales de la UPC
+data/seed_*/
+data/piloto/
+*.export.csv
+.env
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
