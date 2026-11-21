@@ -5,6 +5,7 @@ Pestañas: (1) chat en vivo con la decisión de las reglas, del HMM y de la regr
 Todo corre localmente: no se envía ningún dato a una API externa. Datos 100 % sintéticos.
 """
 import sys
+import pickle
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -21,6 +22,7 @@ from src.observaciones import observar, ruta_atajo
 from src.run_experimentos import EXP, N_HMM_V, N_LR_V, cargar, entrenar_modelos, sub
 
 SEED = 42
+CACHE_MODELOS = Path(__file__).resolve().parent.parent / ".cache" / "modelos_seed42.pkl"
 st.set_page_config(page_title="Albert-sim", page_icon="🩺", layout="wide")
 
 
@@ -42,8 +44,18 @@ def leer_datos():
 
 @st.cache_resource(show_spinner="Entrenando HMM y regresión logística (solo con entrenamiento/validación)...")
 def modelos():
+    if CACHE_MODELOS.exists():
+        try:
+            with CACHE_MODELOS.open("rb") as archivo:
+                return pickle.load(archivo)
+        except Exception:
+            CACHE_MODELOS.unlink(missing_ok=True)
+
     convs, turnos, _ = leer_datos()
     ms = {m.nombre: m for m in entrenar_modelos(sub(convs, turnos, "train"), sub(convs, turnos, "val"))}
+    CACHE_MODELOS.parent.mkdir(parents=True, exist_ok=True)
+    with CACHE_MODELOS.open("wb") as archivo:
+        pickle.dump(ms, archivo)
     return ms
 
 
