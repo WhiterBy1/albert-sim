@@ -10,7 +10,19 @@ a ninguna API**, un módulo que estima `P(requiere asesor | observaciones 1..t)`
 **modelo oculto de Markov (HMM) y filtrado hacia adelante**, y lo compara con una **regresión logística**
 sin estado, con las reglas actuales y con la clase mayoritaria.
 
-## Ejecución (3 comandos; solo se necesita Docker)
+## Ejecución directa en Windows (un clic, sin Docker)
+
+1. Instala Python 3.12 o posterior desde [python.org](https://www.python.org/downloads/).
+2. Haz doble clic en `Iniciar-Albert-Sim.bat`.
+3. Espera a que se abra la aplicación en el navegador.
+
+La primera vez puede tardar unos minutos mientras se prepara el entorno y se instalan las
+dependencias. Las siguientes ejecuciones son más rápidas. La aplicación trabaja con datos
+locales, sin Docker, PostgreSQL ni conexiones externas.
+
+Para detenerla, cierra la ventana de consola que muestra el servidor.
+
+## Ejecución con Docker (3 comandos)
 
 ```bash
 git clone <URL-del-repositorio> albert-sim && cd albert-sim
