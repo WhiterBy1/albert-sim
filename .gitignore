@@ -10,3 +10,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 .cache/
+# Export crudo del panel de Albert (nunca al repositorio, aunque quede fuera de data/piloto/)
+export_panel*.csv
+revision_manual.txt
+etiquetas_manual.csv

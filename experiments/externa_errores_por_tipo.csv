@@ -1,0 +1,56 @@
+modelo,variante,error,tipo_error,casos
+(B') Logística · τ en validación,G3-llm,FP,FP_sin_atajo_acumulado,210
+(B') Logística · τ en validación,G3-guion,FP,FP_sin_atajo_acumulado,190
+(B') Logística · τ en validación,G3-agentes,FP,FP_sin_atajo_acumulado,167
+Línea base 1 · Reglas fijas (Albert),G3-llm,FN,FN_sin_senal_explicita,75
+(A') HMM · τ en validación,G3-guion,FP,FP_sin_atajo_acumulado,62
+(A') HMM · τ en validación,G3-llm,FN,FN_sin_senal_explicita,60
+Línea base 1 · Reglas fijas (Albert),G3-guion,FN,FN_sin_senal_explicita,56
+(A') HMM · τ en validación,G3-agentes,FP,FP_sin_atajo_acumulado,54
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FP,FP_sin_atajo_acumulado,51
+(A') HMM · τ en validación,G3-guion,FN,FN_sin_senal_explicita,39
+Línea base 1 · Reglas fijas (Albert),G3-guion,FP,FP_sin_atajo_acumulado,38
+(A') HMM · τ en validación,G3-llm,FP,FP_sin_atajo_acumulado,33
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FN,FN_sin_senal_explicita,31
+(A') HMM · τ en validación,G3-agentes,FN,FN_sin_senal_explicita,26
+Línea base 1 · Reglas fijas (Albert),G3-llm,FP,FP_lexico_negativo,20
+(A') HMM · τ en validación,G3-llm,FN,FN_voz,20
+(B') Logística · τ en validación,G3-agentes,FP,FP_voz,18
+(B') Logística · τ en validación,G3-llm,FP,FP_lexico_negativo,17
+(B') Logística · τ en validación,G3-agentes,FN,FN_sin_senal_explicita,16
+(A') HMM · τ en validación,G3-llm,FN,FN_conversacion_corta,15
+(A') HMM · τ en validación,G3-llm,FN,FN_otro,14
+(A') HMM · τ en validación,G3-llm,FP,FP_lexico_negativo,14
+(B') Logística · τ en validación,G3-guion,FN,FN_sin_senal_explicita,13
+Línea base 1 · Reglas fijas (Albert),G3-llm,FP,FP_sin_atajo_acumulado,12
+Línea base 1 · Reglas fijas (Albert),G3-llm,FN,FN_voz,12
+(B') Logística · τ en validación,G3-llm,FN,FN_sin_senal_explicita,10
+(B') Logística · τ en validación,G3-llm,FN,FN_voz,9
+(A') HMM · τ en validación,G3-agentes,FN,FN_voz,8
+(A') HMM · τ en validación,G3-llm,FP,FP_repeticion,8
+(B') Logística · τ en validación,G3-llm,FP,FP_repeticion,8
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FP,FP_voz,7
+Línea base 1 · Reglas fijas (Albert),G3-llm,FP,FP_pide_asesor_sin_necesidad,7
+(B') Logística · τ en validación,G3-llm,FP,FP_pide_asesor_sin_necesidad,6
+(B') Logística · τ en validación,G3-llm,FP,FP_voz,5
+Línea base 1 · Reglas fijas (Albert),G3-llm,FP,FP_voz,4
+(A') HMM · τ en validación,G3-agentes,FP,FP_voz,4
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FP,FP_lexico_negativo,3
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FN,FN_voz,3
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FN,FN_otro,3
+Línea base 1 · Reglas fijas (Albert),G3-llm,FN,FN_conversacion_corta,3
+Línea base 1 · Reglas fijas (Albert),G3-llm,FP,FP_repeticion,3
+(A') HMM · τ en validación,G3-guion,FP,FP_repeticion,3
+(A') HMM · τ en validación,G3-agentes,FP,FP_repeticion,3
+(A') HMM · τ en validación,G3-llm,FP,FP_pide_asesor_sin_necesidad,3
+(B') Logística · τ en validación,G3-guion,FP,FP_repeticion,3
+(B') Logística · τ en validación,G3-agentes,FP,FP_repeticion,3
+(B') Logística · τ en validación,G3-llm,FN,FN_conversacion_corta,3
+Línea base 1 · Reglas fijas (Albert),G3-llm,FN,FN_otro,2
+(A') HMM · τ en validación,G3-agentes,FP,FP_lexico_negativo,2
+(B') Logística · τ en validación,G3-agentes,FP,FP_lexico_negativo,2
+Línea base 1 · Reglas fijas (Albert),G3-guion,FP,FP_pide_asesor_sin_necesidad,1
+Línea base 1 · Reglas fijas (Albert),G3-agentes,FP,FP_repeticion,1
+(A') HMM · τ en validación,G3-agentes,FN,FN_conversacion_corta,1
+(B') Logística · τ en validación,G3-agentes,FN,FN_voz,1
+(B') Logística · τ en validación,G3-llm,FN,FN_otro,1

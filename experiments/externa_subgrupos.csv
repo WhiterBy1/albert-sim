@@ -1,0 +1,49 @@
+modelo,subgrupo,valor,mean,std
+Línea base 1 · Reglas fijas (Albert),tipo_usuario,tercero,0.858,0.0
+Línea base 1 · Reglas fijas (Albert),tipo_usuario,titular,0.774,0.0
+Línea base 1 · Reglas fijas (Albert),usa_voz,0,0.81,0.0
+Línea base 1 · Reglas fijas (Albert),usa_voz,1,0.724,0.0
+Línea base 1 · Reglas fijas (Albert),perfil,adulto,0.806,0.0
+Línea base 1 · Reglas fijas (Albert),perfil,adulto_mayor,0.769,0.0
+Línea base 1 · Reglas fijas (Albert),perfil,apurado,0.799,0.0
+Línea base 1 · Reglas fijas (Albert),perfil,joven,0.832,0.0
+Línea base 2 · Clase mayoritaria,tipo_usuario,tercero,0.0,0.0
+Línea base 2 · Clase mayoritaria,tipo_usuario,titular,0.0,0.0
+Línea base 2 · Clase mayoritaria,usa_voz,0,0.0,0.0
+Línea base 2 · Clase mayoritaria,usa_voz,1,0.0,0.0
+Línea base 2 · Clase mayoritaria,perfil,adulto,0.0,0.0
+Línea base 2 · Clase mayoritaria,perfil,adulto_mayor,0.0,0.0
+Línea base 2 · Clase mayoritaria,perfil,apurado,0.0,0.0
+Línea base 2 · Clase mayoritaria,perfil,joven,0.0,0.0
+(A) HMM · τ* predeclarado,tipo_usuario,tercero,0.746,0.0
+(A) HMM · τ* predeclarado,tipo_usuario,titular,0.678,0.002
+(A) HMM · τ* predeclarado,usa_voz,0,0.701,0.0
+(A) HMM · τ* predeclarado,usa_voz,1,0.724,0.022
+(A) HMM · τ* predeclarado,perfil,adulto,0.708,0.0
+(A) HMM · τ* predeclarado,perfil,adulto_mayor,0.723,0.008
+(A) HMM · τ* predeclarado,perfil,apurado,0.705,0.0
+(A) HMM · τ* predeclarado,perfil,joven,0.681,0.0
+(A') HMM · τ en validación,tipo_usuario,tercero,0.827,0.008
+(A') HMM · τ en validación,tipo_usuario,titular,0.774,0.006
+(A') HMM · τ en validación,usa_voz,0,0.802,0.005
+(A') HMM · τ en validación,usa_voz,1,0.641,0.053
+(A') HMM · τ en validación,perfil,adulto,0.79,0.009
+(A') HMM · τ en validación,perfil,adulto_mayor,0.751,0.009
+(A') HMM · τ en validación,perfil,apurado,0.807,0.003
+(A') HMM · τ en validación,perfil,joven,0.817,0.014
+(B) Logística · τ* predeclarado,tipo_usuario,tercero,0.732,0.002
+(B) Logística · τ* predeclarado,tipo_usuario,titular,0.664,0.01
+(B) Logística · τ* predeclarado,usa_voz,0,0.688,0.008
+(B) Logística · τ* predeclarado,usa_voz,1,0.702,0.011
+(B) Logística · τ* predeclarado,perfil,adulto,0.684,0.008
+(B) Logística · τ* predeclarado,perfil,adulto_mayor,0.706,0.004
+(B) Logística · τ* predeclarado,perfil,apurado,0.706,0.014
+(B) Logística · τ* predeclarado,perfil,joven,0.674,0.006
+(B') Logística · τ en validación,tipo_usuario,tercero,0.748,0.003
+(B') Logística · τ en validación,tipo_usuario,titular,0.686,0.008
+(B') Logística · τ en validación,usa_voz,0,0.709,0.006
+(B') Logística · τ en validación,usa_voz,1,0.7,0.007
+(B') Logística · τ en validación,perfil,adulto,0.705,0.009
+(B') Logística · τ en validación,perfil,adulto_mayor,0.713,0.006
+(B') Logística · τ en validación,perfil,apurado,0.742,0.001
+(B') Logística · τ en validación,perfil,joven,0.691,0.006

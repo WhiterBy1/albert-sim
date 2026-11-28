@@ -1,0 +1,36 @@
+modelo,error,tipo_error,casos
+(B) Logística · τ* predeclarado,FP,FP_sin_atajo_acumulado,217
+(A) HMM · τ* predeclarado,FP,FP_sin_atajo_acumulado,201
+(B') Logística · τ en validación,FP,FP_sin_atajo_acumulado,165
+(A') HMM · τ en validación,FP,FP_sin_atajo_acumulado,88
+Línea base 1 · Reglas fijas (Albert),FP,FP_pide_asesor_sin_necesidad,80
+Línea base 1 · Reglas fijas (Albert),FP,FP_sin_atajo_acumulado,68
+(A) HMM · τ* predeclarado,FP,FP_pide_asesor_sin_necesidad,68
+(B) Logística · τ* predeclarado,FP,FP_pide_asesor_sin_necesidad,55
+(B') Logística · τ en validación,FP,FP_pide_asesor_sin_necesidad,45
+(A') HMM · τ en validación,FP,FP_pide_asesor_sin_necesidad,32
+Línea base 2 · Clase mayoritaria,FN,FN_conversacion_corta,31
+(A) HMM · τ* predeclarado,FP,FP_repeticion,27
+(A') HMM · τ en validación,FP,FP_repeticion,27
+(B) Logística · τ* predeclarado,FP,FP_repeticion,27
+(B') Logística · τ en validación,FP,FP_repeticion,27
+Línea base 1 · Reglas fijas (Albert),FP,FP_repeticion,25
+(B) Logística · τ* predeclarado,FP,FP_voz,23
+(A) HMM · τ* predeclarado,FP,FP_voz,22
+(B') Logística · τ en validación,FP,FP_voz,22
+Línea base 1 · Reglas fijas (Albert),FP,FP_voz,19
+Línea base 1 · Reglas fijas (Albert),FP,FP_lexico_negativo,16
+Línea base 2 · Clase mayoritaria,FN,FN_sin_senal_explicita,13
+(A') HMM · τ en validación,FP,FP_voz,13
+(A') HMM · τ en validación,FN,FN_conversacion_corta,12
+(A') HMM · τ en validación,FN,FN_sin_senal_explicita,11
+(A) HMM · τ* predeclarado,FP,FP_lexico_negativo,10
+Línea base 1 · Reglas fijas (Albert),FN,FN_sin_senal_explicita,8
+(B') Logística · τ en validación,FN,FN_conversacion_corta,7
+Línea base 2 · Clase mayoritaria,FN,FN_voz,3
+(A) HMM · τ* predeclarado,FN,FN_conversacion_corta,3
+(B) Logística · τ* predeclarado,FP,FP_lexico_negativo,3
+(B) Logística · τ* predeclarado,FN,FN_conversacion_corta,3
+(B') Logística · τ en validación,FP,FP_lexico_negativo,3
+Línea base 2 · Clase mayoritaria,FN,FN_otro,2
+(A') HMM · τ en validación,FP,FP_lexico_negativo,2

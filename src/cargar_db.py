@@ -26,7 +26,7 @@ def cargar(seed: int, url: str = URL) -> dict:
                          contacto_hash=convs.conversacion_id.map(lambda x: hashlib.sha256(f"sintetico:{x}".encode()).hexdigest()))
     eng = create_engine(url)
     with eng.begin() as cx:
-        sql = ESQUEMA.read_text()
+        sql = ESQUEMA.read_text(encoding="utf-8")
         if eng.dialect.name != "postgresql":           # SQLite para pruebas locales
             sql = sql.replace("BIGSERIAL PRIMARY KEY", "INTEGER PRIMARY KEY AUTOINCREMENT").replace("CHAR(64)", "TEXT")
         for stmt in [s for s in sql.split(";") if s.strip()]:

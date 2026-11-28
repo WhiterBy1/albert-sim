@@ -92,3 +92,14 @@ def test_modelos_y_umbral_en_validacion():
         _, p = m.decidir(tva.obs.tolist()[:6], tercero=0)
         assert all(0.0 <= x <= 1.0 for x in p)
         assert tau_en_validacion(m, va, tva) in TAUS
+
+
+def test_prueba_externa_formato():
+    """G3: etiquetas binarias, turno oráculo dentro de la conversación y voz sin texto."""
+    from src.prueba_externa import cargar_externa
+    c, t = cargar_externa()
+    assert len(c) == 2000 and set(c.requiere_asesor.unique()) <= {0, 1}
+    pos = c[c.requiere_asesor == 1]
+    assert pos.turno_oraculo.notna().all() and (pos.turno_oraculo <= pos.n_turnos).all()
+    assert (t[t.es_voz == 1].texto == "[NOTA_DE_VOZ]").all()
+    assert set(t.obs) <= {"PIDE_ASESOR", "NEGATIVO", "REPITE", "VOZ", "SIN_ATAJO", "CIERRE", "ATAJO"}

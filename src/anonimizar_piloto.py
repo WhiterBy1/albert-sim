@@ -59,7 +59,8 @@ def anonimizar_texto(texto: str, nombres_conocidos: set[str] = frozenset()) -> t
 
 def anonimizar(df: pd.DataFrame, sal: str, nombres: set[str] = frozenset()) -> tuple[pd.DataFrame, pd.DataFrame]:
     df = df.copy()
-    df["fecha_hora"] = pd.to_datetime(df.fecha_hora, errors="coerce")
+    # El panel mezcla marcas con y sin fracción de segundo y con zona horaria (-05): ISO8601 + UTC las lee todas.
+    df["fecha_hora"] = pd.to_datetime(df.fecha_hora, format="ISO8601", utc=True, errors="coerce")
     df = df.sort_values(["conversacion_id", "fecha_hora"])
     df["es_voz"] = df.get("es_voz", 0)
     df["es_voz"] = df.es_voz.fillna(0).astype(int) | df.texto.fillna("").str.contains(r"audio|nota de voz|\.opus|\.ogg", case=False).astype(int)
@@ -91,6 +92,21 @@ def anonimizar(df: pd.DataFrame, sal: str, nombres: set[str] = frozenset()) -> t
     return pd.DataFrame(convs), pd.DataFrame(filas)
 
 
+COLUMNAS = ["conversacion_id", "contacto", "fecha_hora", "rol", "texto", "es_voz"]
+
+
+def leer_export(ruta) -> pd.DataFrame:
+    """Lee el export; si viene sin encabezado (salida directa de la consulta SQL), asume el orden de COLUMNAS."""
+    df = pd.read_csv(ruta)
+    if "conversacion_id" in df.columns:
+        return df
+    df = pd.read_csv(ruta, header=None)
+    if df.shape[1] not in (5, 6):
+        sys.exit(f"El export no tiene encabezado y trae {df.shape[1]} columnas; se esperaban 5 o 6: {', '.join(COLUMNAS)}.")
+    df.columns = COLUMNAS[:df.shape[1]]
+    return df
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("export_csv")
@@ -100,7 +116,7 @@ def main():
     if not sal or len(sal) < 16:
         sys.exit("Defina ALBERT_SAL (>= 16 caracteres) fuera del repositorio antes de anonimizar.")
     nombres = set(Path(a.nombres).read_text(encoding="utf-8").split("\n")) - {""} if a.nombres else set()
-    convs, turnos = anonimizar(pd.read_csv(a.export_csv), sal, nombres)
+    convs, turnos = anonimizar(leer_export(a.export_csv), sal, nombres)
     SALIDA.mkdir(parents=True, exist_ok=True)
     convs.to_csv(SALIDA / "piloto_conversaciones.csv", index=False)
     turnos.to_csv(SALIDA / "piloto_anonimizado.csv", index=False)
